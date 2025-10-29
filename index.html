@@ -180,31 +180,66 @@
       <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" title="Live Class 3"></iframe>
     </div>
   </section>
-<!-- TutorSync Support Form Widget (White Theme) -->
-<section id="tutorsync-form" style="background:#fff;padding:30px;border-radius:16px;max-width:700px;margin:40px auto;box-shadow:0 0 15px rgba(0,0,0,0.1);font-family:'Segoe UI',sans-serif;">
-  <h2 style="text-align:center;color:#222;margin-bottom:20px;">TutorSync Support Form</h2>
-  <form id="supportForm" style="display:flex;flex-direction:column;gap:15px;">
-    <div style="display:flex;flex-wrap:wrap;gap:15px;">
-      <input type="text" name="signinNumber" placeholder="Signin Number" required style="flex:1;min-width:200px;padding:10px;border:1px solid #ccc;border-radius:8px;">
-      <input type="text" name="communicationNumber" placeholder="Communication Number" required style="flex:1;min-width:200px;padding:10px;border:1px solid #ccc;border-radius:8px;">
+<!-- TutorSync Support Form Widget (White Theme, Improved Layout) -->
+<section id="tutorsync-form" style="background:#fff;padding:30px;border-radius:16px;max-width:700px;margin:40px auto;box-shadow:0 0 15px rgba(0,0,0,0.08);font-family:'Segoe UI',sans-serif;">
+  <h2 style="text-align:center;color:#222;margin-bottom:25px;">TutorSync Support Form</h2>
+  
+  <form id="supportForm" style="display:flex;flex-direction:column;gap:18px;">
+    
+    <div>
+      <label style="display:block;margin-bottom:6px;color:#333;font-weight:600;">Signin Number</label>
+      <input type="text" name="signinNumber" required style="width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;">
     </div>
-    <div style="display:flex;flex-wrap:wrap;gap:15px;">
-      <input type="text" name="name" placeholder="Name" required style="flex:1;min-width:200px;padding:10px;border:1px solid #ccc;border-radius:8px;">
-      <input type="text" name="grade" placeholder="Grade" required style="flex:1;min-width:200px;padding:10px;border:1px solid #ccc;border-radius:8px;">
+
+    <div>
+      <label style="display:block;margin-bottom:6px;color:#333;font-weight:600;">Communication Number</label>
+      <input type="text" name="communicationNumber" required style="width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;">
     </div>
-    <div style="display:flex;flex-wrap:wrap;gap:15px;">
-      <input type="text" name="school" placeholder="School" required style="flex:1;min-width:200px;padding:10px;border:1px solid #ccc;border-radius:8px;">
-      <input type="text" name="city" placeholder="City" required style="flex:1;min-width:200px;padding:10px;border:1px solid #ccc;border-radius:8px;">
+
+    <div>
+      <label style="display:block;margin-bottom:6px;color:#333;font-weight:600;">Name</label>
+      <input type="text" name="name" required style="width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;">
     </div>
-    <select name="category" required style="padding:10px;border:1px solid #ccc;border-radius:8px;">
-      <option value="">Select Category</option>
-      <option>Class Activation</option>
-      <option>Class Issue</option>
-      <option>Teacher Issue</option>
-      <option>Technical Issue</option>
-      <option>Batch Changing</option>
-    </select>
-    <textarea name="description" placeholder="Describe your issue..." rows="4" style="padding:10px;border:1px solid #ccc;border-radius:8px;"></textarea>
+
+    <div>
+      <label style="display:block;margin-bottom:6px;color:#333;font-weight:600;">Grade</label>
+      <select name="grade" required style="width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;">
+        <option value="">Select Grade</option>
+        <script>
+          for (let i = 1; i <= 13; i++) {
+            document.write(`<option value="Grade ${i}">Grade ${i}</option>`);
+          }
+        </script>
+      </select>
+    </div>
+
+    <div>
+      <label style="display:block;margin-bottom:6px;color:#333;font-weight:600;">School</label>
+      <input type="text" name="school" required style="width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;">
+    </div>
+
+    <div>
+      <label style="display:block;margin-bottom:6px;color:#333;font-weight:600;">City</label>
+      <input type="text" name="city" required style="width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;">
+    </div>
+
+    <div>
+      <label style="display:block;margin-bottom:6px;color:#333;font-weight:600;">Category</label>
+      <select name="category" required style="width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;">
+        <option value="">Select Category</option>
+        <option>Class Activation</option>
+        <option>Class Issue</option>
+        <option>Teacher Issue</option>
+        <option>Technical Issue</option>
+        <option>Batch Changing</option>
+      </select>
+    </div>
+
+    <div>
+      <label style="display:block;margin-bottom:6px;color:#333;font-weight:600;">Describe your issue</label>
+      <textarea name="description" rows="4" style="width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;"></textarea>
+    </div>
+
     <button type="submit" style="background:#007bff;color:#fff;border:none;padding:12px;border-radius:8px;font-size:16px;cursor:pointer;">Submit</button>
   </form>
 
@@ -225,7 +260,7 @@
       const data = Object.fromEntries(new FormData(form).entries());
 
       try {
-        const res = await fetch(CONFIG.GAS_URL, {
+        await fetch(CONFIG.GAS_URL, {
           method: "POST",
           mode: "no-cors",
           body: JSON.stringify(data),
@@ -285,6 +320,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
