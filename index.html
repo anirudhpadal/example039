@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduMaster - CBSE + JEE/NEET Foundation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background-color: #f9f9fb;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: #004aad;
+      color: #fff;
+      padding: 1rem 0;
+      text-align: center;
+    }
+    header h1 {
+      margin-bottom: 0.3rem;
+    }
+    nav {
+      margin-top: 0.5rem;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      padding: 2rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: #004aad;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      justify-items: center;
+    }
+    iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+      border-radius: 10px;
+    }
+    .mentor-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+    .mentor-card:hover {
+      transform: scale(1.03);
+    }
+    footer {
+      background: #004aad;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>EduMaster</h1>
+    <p>CBSE | JEE | NEET Foundation Courses</p>
+    <nav>
+      <a href="#live">Live Classes</a>
+      <a href="#recorded">Recorded Lectures</a>
+      <a href="#exams">Exams</a>
+      <a href="#mentors">Mentorship</a>
+    </nav>
+  </header>
+
+  <section id="live">
+    <h2>🎥 Live Classes</h2>
+    <p style="text-align:center; margin-bottom:1rem;">Join our expert-led live sessions for CBSE, JEE, and NEET preparation.</p>
+    <div class="video-grid">
+      <iframe src="https://www.youtube.com/embed/21X5lGlDOfg" title="Live Class 1"></iframe>
+      <iframe src="https://www.youtube.com/embed/qz0aGYrrlhU" title="Live Class 2"></iframe>
+      <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" title="Live Class 3"></iframe>
+    </div>
+  </section>
+
+  <section id="recorded">
+    <h2>📚 Recorded Lectures</h2>
+    <p style="text-align:center; margin-bottom:1rem;">Access topic-wise recorded lectures anytime, anywhere.</p>
+    <div class="video-grid">
+      <iframe src="https://www.youtube.com/embed/BHACKCNDMW8" title="Physics Recorded Lecture"></iframe>
+      <iframe src="https://www.youtube.com/embed/aircAruvnKk" title="Chemistry Recorded Lecture"></iframe>
+      <iframe src="https://www.youtube.com/embed/2ePf9rue1Ao" title="Maths Recorded Lecture"></iframe>
+    </div>
+  </section>
+
+  <section id="exams">
+    <h2>🧠 Online Exams</h2>
+    <p style="text-align:center;">Test your knowledge with chapter-wise and full-length mock tests.</p>
+    <div style="text-align:center; margin-top:1.5rem;">
+      <a href="#" style="background:#004aad; color:#fff; padding:0.7rem 1.5rem; border-radius:5px; text-decoration:none;">Start Practice Test</a>
+    </div>
+  </section>
+
+  <section id="mentors">
+    <h2>👨‍🏫 Personalized Mentorship</h2>
+    <p style="text-align:center; margin-bottom:1rem;">Get one-on-one guidance from top mentors.</p>
+    <div class="video-grid">
+      <div class="mentor-card">
+        <h3>Dr. Aisha Verma</h3>
+        <p>NEET Biology Expert | AIIMS Graduate</p>
+        <iframe src="https://www.youtube.com/embed/1Ne1hqOXKKI" title="Mentor Intro"></iframe>
+      </div>
+      <div class="mentor-card">
+        <h3>Rahul Singh</h3>
+        <p>JEE Physics Mentor | IIT Bombay</p>
+        <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4" title="Mentor Intro"></iframe>
+      </div>
+      <div class="mentor-card">
+        <h3>Priya Sharma</h3>
+        <p>CBSE Maths Specialist | 10+ Years Experience</p>
+        <iframe src="https://www.youtube.com/embed/Z1Yd7upQsXY" title="Mentor Intro"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 EduMaster. All rights reserved.</p>
+  </footer>
+</body>
+</html>
