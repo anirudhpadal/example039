@@ -101,6 +101,65 @@
       <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" title="Live Class 3"></iframe>
     </div>
   </section>
+<!-- TutorSync Support Form Widget (White Theme) -->
+<section id="tutorsync-form" style="background:#fff;padding:30px;border-radius:16px;max-width:700px;margin:40px auto;box-shadow:0 0 15px rgba(0,0,0,0.1);font-family:'Segoe UI',sans-serif;">
+  <h2 style="text-align:center;color:#222;margin-bottom:20px;">TutorSync Support Form</h2>
+  <form id="supportForm" style="display:flex;flex-direction:column;gap:15px;">
+    <div style="display:flex;flex-wrap:wrap;gap:15px;">
+      <input type="text" name="signinNumber" placeholder="Signin Number" required style="flex:1;min-width:200px;padding:10px;border:1px solid #ccc;border-radius:8px;">
+      <input type="text" name="communicationNumber" placeholder="Communication Number" required style="flex:1;min-width:200px;padding:10px;border:1px solid #ccc;border-radius:8px;">
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:15px;">
+      <input type="text" name="name" placeholder="Name" required style="flex:1;min-width:200px;padding:10px;border:1px solid #ccc;border-radius:8px;">
+      <input type="text" name="grade" placeholder="Grade" required style="flex:1;min-width:200px;padding:10px;border:1px solid #ccc;border-radius:8px;">
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:15px;">
+      <input type="text" name="school" placeholder="School" required style="flex:1;min-width:200px;padding:10px;border:1px solid #ccc;border-radius:8px;">
+      <input type="text" name="city" placeholder="City" required style="flex:1;min-width:200px;padding:10px;border:1px solid #ccc;border-radius:8px;">
+    </div>
+    <select name="category" required style="padding:10px;border:1px solid #ccc;border-radius:8px;">
+      <option value="">Select Category</option>
+      <option>Class Activation</option>
+      <option>Class Issue</option>
+      <option>Teacher Issue</option>
+      <option>Technical Issue</option>
+      <option>Batch Changing</option>
+    </select>
+    <textarea name="description" placeholder="Describe your issue..." rows="4" style="padding:10px;border:1px solid #ccc;border-radius:8px;"></textarea>
+    <button type="submit" style="background:#007bff;color:#fff;border:none;padding:12px;border-radius:8px;font-size:16px;cursor:pointer;">Submit</button>
+  </form>
+
+  <p id="formMsg" style="text-align:center;margin-top:20px;color:#007bff;display:none;">Submitting...</p>
+
+  <script>
+    const CONFIG = {
+      GAS_URL: "YOUR_GOOGLE_APP_SCRIPT_URL_HERE"
+    };
+
+    document.getElementById("supportForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const msg = document.getElementById("formMsg");
+      msg.style.display = "block";
+      msg.textContent = "Submitting...";
+
+      const data = Object.fromEntries(new FormData(form).entries());
+
+      try {
+        const res = await fetch(CONFIG.GAS_URL, {
+          method: "POST",
+          mode: "no-cors",
+          body: JSON.stringify(data),
+          headers: { "Content-Type": "application/json" },
+        });
+        msg.textContent = "✅ Submitted successfully!";
+        form.reset();
+      } catch (err) {
+        msg.textContent = "❌ Error submitting form. Try again.";
+      }
+    });
+  </script>
+</section>
 
   <section id="recorded">
     <h2>📚 Recorded Lectures</h2>
@@ -147,3 +206,4 @@
   </footer>
 </body>
 </html>
+
