@@ -263,12 +263,42 @@ document.getElementById("supportForm").addEventListener("submit", async (e) => {
 </script>
   
 </section>
+<script>
+  // ✅ Add your Google Apps Script URL here
+  const CONFIG = {
+    GAS_URL: "https://script.google.com/macros/s/AKfycbzSbjAnTDFXIV6PsTK4gFdD2R1OwKEFTKSxUQP-fVn1_KbEz7xuXNQU0aX_hD6Aa4x9WQ/exec"
+  };
 
+  document.getElementById("supportForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const msg = document.getElementById("formMsg");
+    msg.style.display = "block";
+    msg.textContent = "Submitting...";
+
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      const res = await fetch(CONFIG.GAS_URL, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" }
+      });
+      msg.textContent = "✅ Submitted successfully!";
+      form.reset();
+    } catch (err) {
+      msg.textContent = "❌ Error submitting form. Please try again.";
+      console.error("Form submission failed:", err);
+    }
+  });
+</script>
   <footer>
     <p>© 2025 EduMaster. All rights reserved.</p>
   </footer>
 </body>
 </html>
+
 
 
 
